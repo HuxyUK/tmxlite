@@ -71,7 +71,8 @@ else()
   endif()
 endif()
 
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include
+                                           SYSTEM INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 include(GNUInstallDirs)
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/tmxlite DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
