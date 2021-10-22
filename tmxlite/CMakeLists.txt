@@ -50,9 +50,6 @@ if(MSVC)
     add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 endif()
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
-
-
 #includes the list of source files in the src directory
 SET(PROJECT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
 include(${PROJECT_DIR}/CMakeLists.txt)
@@ -71,8 +68,8 @@ else()
   endif()
 endif()
 
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include
-                                           SYSTEM INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_include_directories(${PROJECT_NAME} SYSTEM INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 include(GNUInstallDirs)
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/tmxlite DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
